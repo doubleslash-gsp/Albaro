@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">albaro</string>
+    <string name="find_id"><u>혹시 아이디를 잃어버리셨나요?</u></string>
+    <string name="find_password"><u>혹시 비밀번호를 잃어버리셨나요?</u></string>
+</resources>

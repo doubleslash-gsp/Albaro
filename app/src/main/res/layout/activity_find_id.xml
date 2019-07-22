@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/gray_backgroud"
+    tools:context=".LoginActivity">
+
+    <Button
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="left"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/arrow"
+        android:scaleType="fitXY"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+        <!-- 화면이름: ID 찾기 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:text="ID 찾기"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:text="Find ID"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:textColor="@color/gray_9d"/>
+
+        <!-- 이름 입력 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="이름"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:textColor="@color/base_text_color"/>
+
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:paddingLeft="10dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rectangle"
+            android:hint="홍길동"
+            android:textSize="14dp"
+            android:textColorHint="@color/gray_dc"
+            android:textColor="@color/gray_9d"/>
+
+
+        <!-- 생년월일 입력 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="생년월일"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:textColor="@color/base_text_color"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/et_year"
+                android:layout_width="0dp"
+                android:layout_weight="0.4"
+                android:layout_height="40dp"
+                android:layout_marginRight="10dp"
+                android:paddingLeft="10dp"
+                android:layout_gravity="center"
+                android:background="@drawable/rectangle"
+                android:hint="홍길동"
+                android:textColorHint="@color/gray_dc"
+                android:textSize="14dp"
+                android:textColor="@color/gray_9d"/>
+
+            <EditText
+                android:id="@+id/et_month"
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:layout_height="40dp"
+                android:layout_marginRight="10dp"
+                android:paddingLeft="10dp"
+                android:layout_gravity="center"
+                android:background="@drawable/rectangle"
+                android:hint="홍길동"
+                android:textSize="14dp"
+                android:textColorHint="@color/gray_dc"
+                android:textColor="@color/gray_9d"/>
+
+            <EditText
+                android:id="@+id/et_day"
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:layout_height="40dp"
+                android:paddingLeft="10dp"
+                android:layout_gravity="center"
+                android:background="@drawable/rectangle"
+                android:hint="홍길동"
+                android:textSize="14dp"
+                android:textColorHint="@color/gray_dc"
+                android:textColor="@color/gray_9d"/>
+        </LinearLayout>
+
+
+        <!-- 핸드폰 입력 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="연락처"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:textColor="@color/base_text_color"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/et_phone1"
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:layout_height="40dp"
+                android:paddingLeft="10dp"
+                android:layout_gravity="center"
+                android:background="@drawable/rectangle"
+                android:hint="010"
+                android:textSize="14dp"
+                android:textColorHint="@color/gray_dc"
+                android:textColor="@color/gray_9d"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textColor="@color/gray_9d"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="center"/>
+
+            <EditText
+                android:id="@+id/et_phone2"
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:layout_height="40dp"
+                android:paddingLeft="10dp"
+                android:layout_gravity="center"
+                android:background="@drawable/rectangle"
+                android:hint="0000"
+                android:textSize="14dp"
+                android:textColorHint="@color/gray_dc"
+                android:textColor="@color/gray_9d"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textColor="@color/gray_9d"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="center"/>
+
+            <EditText
+                android:id="@+id/et_phone3"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:paddingLeft="10dp"
+                android:layout_gravity="center"
+                android:layout_weight="0.3"
+                android:background="@drawable/rectangle"
+                android:hint="0000"
+                android:textColorHint="@color/gray_dc"
+                android:textSize="14dp"
+                android:textColor="@color/gray_9d"/>
+
+        </LinearLayout>
+
+        <!-- 확인 버튼 -->
+        <Button
+            android:id="@+id/bt_ok"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="확인"
+            android:textSize="14dp"
+            android:textStyle="normal"
+            android:textColor="@color/white"
+            android:background="@color/base_color"
+            style="?android:attr/borderlessButtonStyle"/>
+
+
+        <!-- 비밀번호 찾기 -->
+        <TextView
+            android:id="@+id/tv_findPwd"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:text="@string/find_password"
+            android:textColor="@color/gray_9d"
+            android:textSize="14dp"
+            android:textStyle="normal"/>
+
+
+
+    </LinearLayout>
+</LinearLayout>
