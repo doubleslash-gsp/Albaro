@@ -9,10 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.jh.albaro.EmailCheck_Dialog;
-import com.example.jh.albaro.FindIDActivity;
-import com.example.jh.albaro.FinishPwd_Dialog;
-import com.example.jh.albaro.LoginActivity;
 import com.example.jh.albaro.ServerData.HttpClient;
 import com.example.jh.albaro.R;
 import com.example.jh.albaro.ServerData.MemberInfo;
@@ -23,7 +19,7 @@ public class SettingPWActivity extends AppCompatActivity {
 
     private String email;
     private EditText pwd, repwd;
-    private  Button bt_ok;
+    private  Button bt_ok, bt_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +29,7 @@ public class SettingPWActivity extends AppCompatActivity {
         pwd = (EditText) findViewById(R.id.et_passwd);
         repwd = (EditText) findViewById(R.id.et_repasswd);
         bt_ok = (Button) findViewById(R.id.bt_ok);
+        bt_back = (Button) findViewById(R.id.bt_back);
 
         Intent i = getIntent();
 
@@ -47,6 +44,12 @@ public class SettingPWActivity extends AppCompatActivity {
                 }else{
                     Toast.makeText(getApplicationContext(), "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+        bt_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
             }
         });
 
@@ -93,11 +96,6 @@ public class SettingPWActivity extends AppCompatActivity {
                 if(result.getResult().equals("Success")){
                     FinishPwd_Dialog customDialog = new FinishPwd_Dialog(SettingPWActivity.this);
                     customDialog.callFunction();
-
-                    Intent i = new Intent(SettingPWActivity.this, LoginActivity.class);
-                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(i);
-                    finish();
                 }else{
                     Toast.makeText(getApplicationContext(), "네트워크나 서버 상태를 확인해주세요.", Toast.LENGTH_SHORT).show();
                 }

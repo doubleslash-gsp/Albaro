@@ -10,6 +10,7 @@
     tools:context=".LoginActivity">
 
     <Button
+        android:id="@+id/bt_back"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_gravity="left"
@@ -124,7 +125,9 @@
                 android:hint="010"
                 android:textSize="14dp"
                 android:textColorHint="@color/gray_dc"
-                android:textColor="@color/gray_9d"/>
+                android:textColor="@color/gray_9d"
+                android:maxLength="3"
+                android:inputType="number"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -146,7 +149,9 @@
                 android:hint="0000"
                 android:textSize="14dp"
                 android:textColorHint="@color/gray_dc"
-                android:textColor="@color/gray_9d"/>
+                android:textColor="@color/gray_9d"
+                android:maxLength="4"
+                android:inputType="number"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -168,7 +173,9 @@
                 android:hint="0000"
                 android:textColorHint="@color/gray_dc"
                 android:textSize="14dp"
-                android:textColor="@color/gray_9d"/>
+                android:textColor="@color/gray_9d"
+                android:maxLength="4"
+                android:inputType="number"/>
 
         </LinearLayout>
 

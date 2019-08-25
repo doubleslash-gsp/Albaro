@@ -42,9 +42,9 @@ public class HttpClient {
         setHeader(conn);
         setBody(conn);
         httpStatusCode = getStatusCode(conn);
-        Log.i("error_check", "httpStatusCode: " + httpStatusCode);
+        //Log.i("error_check", "httpStatusCode: " + httpStatusCode);
         body = readStream(conn);
-        Log.i("error_check", "body: " + body.toString());
+        //Log.i("error_check", "body: " + body.toString());
         conn.disconnect();
     }
 

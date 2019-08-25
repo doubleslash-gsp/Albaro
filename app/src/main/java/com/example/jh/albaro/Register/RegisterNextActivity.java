@@ -69,9 +69,6 @@ public class RegisterNextActivity extends AppCompatActivity {
                         params.put("day", getday);
                         params.put("password", passwd.getText().toString());
 
-
-                        Log.i("error_check", "\nname: "+getname + "\nemail: " + getemail);
-
                         task.execute(params);
 
                     }else {
@@ -97,17 +94,13 @@ public class RegisterNextActivity extends AppCompatActivity {
 
             // Parameter 를 전송한다.
             http.addAllParameters(maps[0]);
-            Log.i("error_check", "params: " + maps[0]);
 
             //Http 요청 전송
             HttpClient post = http.create();
             post.request();
-            Log.i("httpresult", "post: "+post);
 
             // 응답 상태코드 가져오기
             int statusCode = post.getHttpStatusCode();
-
-            Log.i("httpresult", "code: "+statusCode);
 
             // 응답 본문 가져오기
             String body = post.getBody();

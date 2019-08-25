@@ -10,6 +10,7 @@
     tools:context=".LoginActivity">
 
     <Button
+        android:id="@+id/bt_back"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_gravity="left"
@@ -156,10 +157,11 @@
                 android:paddingLeft="10dp"
                 android:layout_gravity="center"
                 android:background="@drawable/rectangle"
-                android:hint="년"
+                android:hint="0000년"
                 android:textColorHint="@color/gray_dc"
                 android:textSize="14dp"
                 android:textColor="@color/gray_9d"
+                android:maxLength="4"
                 android:inputType="number"/>
 
             <EditText
@@ -171,10 +173,11 @@
                 android:paddingLeft="10dp"
                 android:layout_gravity="center"
                 android:background="@drawable/rectangle"
-                android:hint="월"
+                android:hint="00월"
                 android:textSize="14dp"
                 android:textColorHint="@color/gray_dc"
                 android:textColor="@color/gray_9d"
+                android:maxLength="2"
                 android:inputType="number"/>
 
             <EditText
@@ -184,11 +187,12 @@
                 android:layout_gravity="center"
                 android:layout_weight="0.3"
                 android:background="@drawable/rectangle"
-                android:hint="일"
+                android:hint="00일"
                 android:paddingLeft="10dp"
                 android:textColor="@color/gray_9d"
                 android:textColorHint="@color/gray_dc"
                 android:textSize="14dp"
+                android:maxLength="2"
                 android:inputType="number"/>
         </LinearLayout>
 
@@ -222,6 +226,7 @@
                 android:textSize="14dp"
                 android:textColorHint="@color/gray_dc"
                 android:textColor="@color/gray_9d"
+                android:maxLength="3"
                 android:inputType="number"/>
 
             <TextView
@@ -245,6 +250,7 @@
                 android:textSize="14dp"
                 android:textColorHint="@color/gray_dc"
                 android:textColor="@color/gray_9d"
+                android:maxLength="4"
                 android:inputType="number"/>
 
             <TextView
@@ -268,6 +274,7 @@
                 android:textColorHint="@color/gray_dc"
                 android:textSize="14dp"
                 android:textColor="@color/gray_9d"
+                android:maxLength="4"
                 android:inputType="number"/>
 
         </LinearLayout>

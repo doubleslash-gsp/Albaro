@@ -20,7 +20,7 @@ public class AuthEmailActivity extends AppCompatActivity implements View.OnClick
 
     private TextView email, tv_authresult;
     private EditText auth;
-    private Button bt_ok, bt_next, bt_send;
+    private Button bt_ok, bt_next, bt_send, bt_back;
     private boolean flag = false;
 
 
@@ -35,6 +35,7 @@ public class AuthEmailActivity extends AppCompatActivity implements View.OnClick
         bt_ok = (Button) findViewById(R.id.bt_ok);
         bt_next = (Button) findViewById(R.id.bt_next);
         bt_send = (Button) findViewById(R.id.bt_send);
+        bt_back = (Button) findViewById(R.id.bt_back);
 
         Intent i = getIntent();
         email.setText(i.getExtras().getString("email"));
@@ -69,6 +70,9 @@ public class AuthEmailActivity extends AppCompatActivity implements View.OnClick
                     Toast.makeText(getApplicationContext(), "인증을 먼저 해주세요.", Toast.LENGTH_SHORT).show();
                 }
                 break;
+            case R.id.bt_back:
+                onBackPressed();
+                break;
         }
     }// end click event
 
@@ -86,12 +90,13 @@ public class AuthEmailActivity extends AppCompatActivity implements View.OnClick
 
             // HTTP 요청 준비 작업
             HttpClient.Builder http = new HttpClient.Builder("POST", server+ "/" + params[0] + ".do");
+            State = params[0];
 
             if(params[0].equals("")){
-                State = "sendemail"; //메일로 인증번호만 전송
+                //메일로 인증번호만 전송
                 http.addOrReplace("email", params[1]);
             }else{
-                State = "checkauthkey"; //인증번호 체크
+                //인증번호 체크
                 http.addOrReplace("email", params[1]);
                 http.addOrReplace("authkey", auth.getText().toString());
             }
@@ -114,36 +119,44 @@ public class AuthEmailActivity extends AppCompatActivity implements View.OnClick
         @Override
         protected void onPostExecute(String s) {
 
-            Gson gson = new Gson();
-            try{
-                MemberInfo result = gson.fromJson(s, MemberInfo.class);
-
-                if(result.getResult().equals("Success")){
+            if(s==null){
+                Toast.makeText(getApplicationContext(), "네트워크나 서버 상태를 확인해주세요.", Toast.LENGTH_SHORT).show();
+            }else{
+                Gson gson = new Gson();
+                try{
+                    MemberInfo result = gson.fromJson(s, MemberInfo.class);
 
                     if(State.equals("sendemail")){
-                        Toast.makeText(getApplicationContext(), "인증번호가 전송되었습니다.", Toast.LENGTH_SHORT).show();
-                    }else{
-                        flag=true;
-                        tv_authresult.setText("인증 확인되었습니다.");
-                        tv_authresult.setVisibility(View.VISIBLE);
-                        tv_authresult.setTextColor(getColor(R.color.base_color));
+                        if(result.getResult().equals("Success"))
+                            Toast.makeText(getApplicationContext(), "인증번호가 전송되었습니다.", Toast.LENGTH_SHORT).show();
+                        else
+                            Toast.makeText(getApplicationContext(), "이메일을 확인해주세요.", Toast.LENGTH_SHORT).show();
+
+                    }else if(State.equals("checkauthkey")){
+                        if(result.getResult().equals("Success")){
+                            flag=true;
+                            tv_authresult.setText("인증 확인되었습니다.");
+                            tv_authresult.setVisibility(View.VISIBLE);
+                            tv_authresult.setTextColor(getColor(R.color.base_color));
+                        }
+                        else{
+                            flag=false;
+                            tv_authresult.setText("잘못된 번호입니다.");
+                            tv_authresult.setVisibility(View.VISIBLE);
+                            tv_authresult.setTextColor(getColor(R.color.wrong_auth));
+                        }
                     }
 
-                }else{
-                    if(State.equals("sendemail")){
-                        Toast.makeText(getApplicationContext(), "네트워크나 서버 상태를 확인해주세요.", Toast.LENGTH_SHORT).show();
-                    }else{
-                        tv_authresult.setText("잘못된 번호입니다.");
-                        tv_authresult.setVisibility(View.VISIBLE);
-                        tv_authresult.setTextColor(getColor(R.color.wrong_auth));
-                    }
+                }catch (NullPointerException e){
+                    e.printStackTrace();
                 }
 
-            }catch (NullPointerException e){
-                e.printStackTrace();
             }
+
+
 
 
         }
     }
+
 }

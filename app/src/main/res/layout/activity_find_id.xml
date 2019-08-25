@@ -10,14 +10,15 @@
     tools:context=".LoginActivity">
 
     <Button
+        android:id="@+id/bt_back"
         android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_height="32dp"
         android:layout_gravity="left"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/arrow"
-        android:scaleType="fitXY"/>
+        android:scaleType="fitXY" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +26,8 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:orientation="vertical"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:padding="10dp">
 
         <!-- 화면이름: ID 찾기 -->
         <TextView
@@ -62,14 +64,14 @@
             android:id="@+id/et_name"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginBottom="10dp"
-            android:paddingLeft="10dp"
             android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/rectangle"
             android:hint="홍길동"
-            android:textSize="14dp"
+            android:paddingLeft="10dp"
+            android:textColor="@color/gray_9d"
             android:textColorHint="@color/gray_dc"
-            android:textColor="@color/gray_9d"/>
+            android:textSize="14dp" />
 
 
         <!-- 생년월일 입력 -->
@@ -92,16 +94,18 @@
             <EditText
                 android:id="@+id/et_year"
                 android:layout_width="0dp"
-                android:layout_weight="0.4"
                 android:layout_height="40dp"
-                android:layout_marginRight="10dp"
-                android:paddingLeft="10dp"
                 android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:layout_weight="0.4"
                 android:background="@drawable/rectangle"
-                android:hint="홍길동"
+                android:hint="0000년"
+                android:inputType="number"
+                android:maxLength="4"
+                android:paddingLeft="10dp"
+                android:textColor="@color/gray_9d"
                 android:textColorHint="@color/gray_dc"
-                android:textSize="14dp"
-                android:textColor="@color/gray_9d"/>
+                android:textSize="14dp" />
 
             <EditText
                 android:id="@+id/et_month"
@@ -112,10 +116,12 @@
                 android:paddingLeft="10dp"
                 android:layout_gravity="center"
                 android:background="@drawable/rectangle"
-                android:hint="홍길동"
+                android:hint="00월"
                 android:textSize="14dp"
                 android:textColorHint="@color/gray_dc"
-                android:textColor="@color/gray_9d"/>
+                android:textColor="@color/gray_9d"
+                android:maxLength="2"
+                android:inputType="number"/>
 
             <EditText
                 android:id="@+id/et_day"
@@ -125,10 +131,12 @@
                 android:paddingLeft="10dp"
                 android:layout_gravity="center"
                 android:background="@drawable/rectangle"
-                android:hint="홍길동"
+                android:hint="00일"
                 android:textSize="14dp"
                 android:textColorHint="@color/gray_dc"
-                android:textColor="@color/gray_9d"/>
+                android:textColor="@color/gray_9d"
+                android:maxLength="2"
+                android:inputType="number"/>
         </LinearLayout>
 
 
@@ -160,7 +168,9 @@
                 android:hint="010"
                 android:textSize="14dp"
                 android:textColorHint="@color/gray_dc"
-                android:textColor="@color/gray_9d"/>
+                android:textColor="@color/gray_9d"
+                android:maxLength="3"
+                android:inputType="number"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -182,7 +192,9 @@
                 android:hint="0000"
                 android:textSize="14dp"
                 android:textColorHint="@color/gray_dc"
-                android:textColor="@color/gray_9d"/>
+                android:textColor="@color/gray_9d"
+                android:maxLength="4"
+                android:inputType="number"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -204,7 +216,9 @@
                 android:hint="0000"
                 android:textColorHint="@color/gray_dc"
                 android:textSize="14dp"
-                android:textColor="@color/gray_9d"/>
+                android:textColor="@color/gray_9d"
+                android:maxLength="4"
+                android:inputType="number"/>
 
         </LinearLayout>
 

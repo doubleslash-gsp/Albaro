@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_backgroud"
+    android:orientation="vertical"
+    tools:context=".WorkSpace.WorkspaceActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="직장 선택"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="30dp"
+        android:text="Workplace selection"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:textColor="@color/gray_9d"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1"
+        android:focusable="false"
+        android:focusableInTouchMode="false">
+
+        <GridView
+            android:id="@+id/gridview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.8"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingTop="40dp"
+            android:paddingBottom="40dp"
+            android:layout_margin="20dp"
+            android:verticalSpacing="5dp"
+            android:horizontalSpacing="5dp"
+            android:gravity="center"
+            android:background="@color/white"
+            android:numColumns="2"
+            android:elevation="5dp"
+            android:scrollbars="horizontal">
+
+        </GridView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bt_add"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/addition"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"/>
+
+            <Button
+                android:id="@+id/bt_mypage"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/my_page"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"/>
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

@@ -11,7 +11,7 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,12 +21,16 @@
         </activity>
         <activity android:name=".Register.RegisterActivity" />
         <activity android:name=".FindPwd.FindPWActivity" />
-        <activity android:name=".FindIDActivity" />
+        <activity android:name=".FindId.FindIDActivity" />
         <activity android:name=".FindPwd.SettingPWActivity" />
         <activity android:name=".FindPwd.AuthEmailActivity" />
         <activity android:name=".Register.RegisterNextActivity" />
         <activity android:name=".Register.RegisterFinishActivity" />
-        <activity android:name=".StoreListActivity"></activity>
+        <activity android:name=".StoreListActivity" />
+        <activity android:name=".WorkSpace.WorkspaceActivity" />
+        <activity android:name=".CalendarActivity" />
+        <activity android:name=".WorkSpace.AddworkActivity" />
+        <activity android:name=".WorkSpace.Workspace_Dialog"></activity>
     </application>
 
 </manifest>

@@ -12,13 +12,13 @@
     <Button
         android:id="@+id/bt_back"
         android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_height="32dp"
         android:layout_gravity="left"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/arrow"
-        android:scaleType="fitXY"/>
+        android:scaleType="fitXY" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,15 +26,16 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:orientation="vertical"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:padding="10dp">
 
-        <!-- 화면이름: 이메일 인증하기 -->
+        <!-- 화면이름: 직장추가 -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
-            android:text="이메일 인증하기"
+            android:text="직장 추가"
             android:textSize="22dp"
             android:textStyle="bold"
             android:textColor="@color/black"/>
@@ -44,47 +45,60 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
-            android:text="E-mail Authentication"
+            android:text="Rectum addition"
             android:textSize="12dp"
             android:textStyle="bold"
             android:textColor="@color/gray_9d"/>
 
-        <!-- 이메일 입력 -->
+        <!-- 직장명 -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:text="E-mail"
+            android:text="직장명"
             android:textSize="14dp"
             android:textStyle="bold"
             android:textColor="@color/base_text_color"/>
 
-        <TextView
-            android:id="@+id/tv_email"
+        <EditText
+            android:id="@+id/et_storename"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginBottom="10dp"
-            android:paddingLeft="10dp"
             android:layout_gravity="center"
-            android:gravity="left|center_vertical"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/rectangle"
+            android:hint="직장명"
+            android:paddingLeft="10dp"
+            android:textColor="@color/gray_9d"
+            android:textColorHint="@color/gray_dc"
             android:textSize="14dp"
-            android:textColor="@color/gray_9d"/>
+            android:maxLength="30"/>
 
-        <!-- 인증번호 전송 버튼 -->
-        <Button
-            android:id="@+id/bt_send"
+
+        <!-- 직장 고유 아이디 -->
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:text="인증번호 발송"
-            android:textSize="14dp"
-            android:textStyle="normal"
-            android:textColor="@color/base_color"
-            android:background="@drawable/rectangle_stroke_white"
-            style="?android:attr/borderlessButtonStyle"/>
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:text="직장 고유 아이디"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:textColor="@color/base_text_color"/>
 
+            <ImageButton
+                android:id="@+id/ib_question"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:background="@drawable/question" />
 
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -95,19 +109,22 @@
 
 
             <EditText
-                android:id="@+id/et_authkey"
+                android:id="@+id/et_storeid"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
                 android:layout_height="match_parent"
                 android:paddingLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/rectangle"
+                android:hint="직장 고유 아이디"
+                android:textColor="@color/gray_9d"
+                android:textColorHint="@color/gray_dc"
                 android:textSize="14dp"
-                android:textColor="@color/gray_9d"/>
+                android:maxLength="10"/>
 
             <!-- 인증번호 확인 버튼 -->
             <Button
-                android:id="@+id/bt_ok"
+                android:id="@+id/bt_idcheck"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.3"
@@ -121,32 +138,30 @@
 
         </LinearLayout>
 
-
-        <!-- 인증번호 결과 -->
+        <!-- 결과 -->
         <TextView
             android:id="@+id/tv_result"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:layout_gravity="right"
             android:textColor="@color/gray_9d"
             android:textSize="12dp"
             android:textStyle="normal"
-            android:visibility="invisible"/>
+            android:visibility="gone"/>
 
-        <!-- 다음 버튼 -->
+        <!-- 확인 버튼 -->
         <Button
-            android:id="@+id/bt_next"
+            android:id="@+id/bt_ok"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:text="다음"
+            android:text="확인"
             android:textSize="14dp"
             android:textStyle="normal"
             android:textColor="@color/white"
             android:background="@color/base_color"
             style="?android:attr/borderlessButtonStyle"/>
-
 
 
     </LinearLayout>

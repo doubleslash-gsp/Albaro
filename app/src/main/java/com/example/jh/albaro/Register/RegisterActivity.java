@@ -16,10 +16,13 @@ import com.example.jh.albaro.ServerData.MemberInfo;
 import com.example.jh.albaro.ServerData.StaticVariable;
 import com.google.gson.Gson;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText name, email, year, month, day, phone1, phone2, phone3;
-    private Button man, female, next;
+    private Button man, female, next, bt_back;
     private String sex = "man";
 
     @Override
@@ -38,10 +41,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         man = (Button) findViewById(R.id.bt_man);
         female = (Button) findViewById(R.id.bt_female);
         next = (Button) findViewById(R.id.bt_next);
+        bt_back = (Button) findViewById(R.id.bt_back);
 
         man.setOnClickListener(RegisterActivity.this);
         female.setOnClickListener(RegisterActivity.this);
         next.setOnClickListener(RegisterActivity.this);
+        bt_back.setOnClickListener(this);
 
 
 
@@ -65,13 +70,40 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     Toast.makeText(getApplicationContext(), "정보를 입력해주세요.", Toast.LENGTH_SHORT).show();
 
                 }else { //모두 입력했으면 이메일 확인 후 다음 페이지로 이동
-                    CheckEmailTask task = new CheckEmailTask();
-                    task.execute(email.getText().toString());
+                    if(isEmailValid(email.getText().toString())){
+                        CheckEmailTask task = new CheckEmailTask();
+                        task.execute(email.getText().toString());
+                    }else{
+                        Toast.makeText(getApplicationContext(), "올바른 형식의 이메일을 입력해주세요.", Toast.LENGTH_SHORT).show();
+                    }
                 }
+                break;
+            case R.id.bt_back:
+                onBackPressed();
                 break;
         }
 
     } // end click event
+
+    public boolean isEmailValid(String email) {
+        String regExpn =
+                "^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
+                        +"((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                        +"[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
+                        +"([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                        +"[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
+                        +"([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$";
+
+        CharSequence inputStr = email;
+
+        Pattern pattern = Pattern.compile(regExpn,Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(inputStr);
+
+        if(matcher.matches())
+            return true;
+        else
+            return false;
+    }
 
 
     class CheckEmailTask extends AsyncTask<String, Integer, String> {
@@ -111,7 +143,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             try{
                 MemberInfo result = gson.fromJson(s, MemberInfo.class);
 
-                if(result.getResult().equals("has_not_email")){
+                if(result.getResult().equals("Success")){
 
                     String phone = phone1.getText().toString() + "-" + phone2.getText().toString() + "-" + phone3.getText().toString();
 

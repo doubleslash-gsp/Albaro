@@ -3,15 +3,13 @@ package com.example.jh.albaro.ServerData;
 public class MemberInfo {
     private String result;
     private String email;
-    private int year;
-    private int month;
-    private int day;
+    private String year;
+    private String month;
+    private String day;
     private String sex;
-    private  String phone;
+    private String phone;
+    private String color;
 
-    public MemberInfo() {
-        // TODO Auto-generated constructor stub
-    }
 
     public MemberInfo(String result) {
         this.result = result;
@@ -22,8 +20,17 @@ public class MemberInfo {
         this.email = email;
     }
 
+    public MemberInfo(String email, String year, String month, String day, String sex, String phone, String color){
+        this.email = email;
+        this.year = year;
+        this.month = month;
+        this.day = day;
+        this.sex = sex;
+        this.phone = phone;
+        this.color = color;
+    }
 
-    public MemberInfo(String result, String email, int year, int month, int day, String sex, String phone) {
+    public MemberInfo(String result, String email, String year, String month, String day, String sex, String phone, String color){
         this.result = result;
         this.email = email;
         this.year = year;
@@ -31,8 +38,8 @@ public class MemberInfo {
         this.day = day;
         this.sex = sex;
         this.phone = phone;
+        this.color = color;
     }
-
 
     public String getResult() {
         return result;
@@ -50,27 +57,27 @@ public class MemberInfo {
         this.email = email;
     }
 
-    public int getYear() {
+    public String getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public void setYear(String year) {
         this.year = year;
     }
 
-    public int getMonth() {
+    public String getMonth() {
         return month;
     }
 
-    public void setMonth(int month) {
+    public void setMonth(String month) {
         this.month = month;
     }
 
-    public int getDay() {
+    public String getDay() {
         return day;
     }
 
-    public void setDay(int day) {
+    public void setDay(String day) {
         this.day = day;
     }
 
@@ -88,5 +95,13 @@ public class MemberInfo {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.jh.albaro;
+package com.example.jh.albaro.FindId;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jh.albaro.FindPwd.FindPWActivity;
+import com.example.jh.albaro.R;
 import com.example.jh.albaro.ServerData.HttpClient;
 import com.example.jh.albaro.ServerData.MemberInfo;
 import com.example.jh.albaro.ServerData.StaticVariable;
@@ -23,7 +24,7 @@ import java.util.Map;
 public class FindIDActivity extends AppCompatActivity {
 
     private EditText name, year, month, day, phone1, phone2, phone3;
-    private Button ok;
+    private Button ok, bt_back;
     private TextView findPwd;
 
     @Override
@@ -39,6 +40,7 @@ public class FindIDActivity extends AppCompatActivity {
         phone2 = (EditText) findViewById(R.id.et_phone2);
         phone3 = (EditText) findViewById(R.id.et_phone3);
         ok = (Button) findViewById(R.id.bt_ok);
+        bt_back = (Button) findViewById(R.id.bt_back);
         findPwd = (TextView) findViewById(R.id.tv_findPwd);
 
         ok.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +78,13 @@ public class FindIDActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        bt_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     class FindIdTask extends AsyncTask<Map<String, String>, Void, String> {
@@ -90,17 +99,12 @@ public class FindIDActivity extends AppCompatActivity {
 
             // Parameter 를 전송한다.
             http.addAllParameters(maps[0]);
-            Log.i("error_check", "params: " + maps[0]);
 
             //Http 요청 전송
             HttpClient post = http.create();
             post.request();
-            Log.i("httpresult", "post: "+post);
-
             // 응답 상태코드 가져오기
             int statusCode = post.getHttpStatusCode();
-
-            Log.i("httpresult", "code: "+statusCode);
 
             // 응답 본문 가져오기
             String body = post.getBody();
@@ -134,4 +138,6 @@ public class FindIDActivity extends AppCompatActivity {
 
         }
     }
+
+
 }
